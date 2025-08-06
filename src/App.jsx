@@ -6,7 +6,6 @@ import ResourcesPage from './pages/ResourcesPage';
 import ChatPage from './pages/ChatPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Login from './pages/Login';
 
 import './App.css'
 
