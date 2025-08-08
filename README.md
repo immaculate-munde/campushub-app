@@ -57,6 +57,7 @@ Manage your study notes — add, edit, and delete them as you go.
 Plan your week effectively with the Planner and keep track of all your study events.
 
 🛠 Technologies Used
+
 React
 
 Tailwind CSS v4
