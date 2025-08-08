@@ -1,12 +1,52 @@
-# React + Vite
+#CampusHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based student productivity app featuring note-taking, a study planner, theming support, and quick access to resources.
 
-Currently, two official plugins are available:
+Features
+Dark and Light Themes with toggle support
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Notes Management with add, update, and delete functionality, persisted in localStorage
 
-## Expanding the ESLint configuration
+Study Planner for managing weekly events with time slots and event types
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Search Bar to find notes and resources quickly
+
+Smooth animations using Framer Motion
+
+Responsive UI built with Tailwind CSS v4
+
+Installation
+Clone the repo:
+git clone https://github.com/immaculate-munde/campushub-app.git
+
+Install dependencies:
+npm install or yarn install
+
+Run the app locally:
+npm start or yarn start
+
+Usage
+Use the theme toggle button to switch between dark and light modes.
+
+Navigate through notes, planner, and resources using the sidebar or quick links.
+
+Add, update, or delete notes in the Notes section.
+
+Manage weekly study events with the Planner.
+
+Technologies
+React
+
+Tailwind CSS v4
+
+Framer Motion
+
+React Router 
+
+Lucide React Icons
+
+Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+License
+MIT License
