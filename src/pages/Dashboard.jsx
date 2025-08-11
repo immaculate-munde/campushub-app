@@ -24,15 +24,26 @@ const Dashboard = () => {
     { name: 'Resources', path: '/resources', icon: <FolderIcon className="h-5 w-5" /> }
   ];
 
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
+  // Fetch quote from ZenQuotes API
+  const fetchQuote = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch("https://zenquotes.io/api/random");
+      const data = await response.json();
+      setQuote({ text: data[0].q, author: data[0].a });
+    } catch (error) {
+      console.error("Error fetching quote:", error);
       setQuote({
-        text: 'The beautiful thing about learning is that no one can take it away from you.',
-        author: 'B.B. King'
+        text: "The beautiful thing about learning is that no one can take it away from you.",
+        author: "B.B. King"
       });
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
+  };
+
+  useEffect(() => {
+    fetchQuote();
   }, []);
 
   const containerVariants = {
@@ -47,7 +58,8 @@ const Dashboard = () => {
 
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Motivational Quote */}
+      
+      {/* Motivational Quote with API */}
       <motion.div variants={itemVariants} className={`col-span-1 md:col-span-2 p-6 rounded-xl shadow-md ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
         {isLoading ? (
           <div className="animate-pulse h-20 flex items-center justify-center">
@@ -55,8 +67,18 @@ const Dashboard = () => {
           </div>
         ) : (
           <div className="text-center">
-            <p className={`text-xl italic mb-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{`"${quote.text}"`}</p>
-            <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>— {quote.author}</p>
+            <p className={`text-xl italic mb-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+              “{quote.text}”
+            </p>
+            <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+              — {quote.author}
+            </p>
+            <button
+              onClick={fetchQuote}
+              className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+            >
+              New Quote
+            </button>
           </div>
         )}
       </motion.div>
