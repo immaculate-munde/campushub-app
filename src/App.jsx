@@ -8,6 +8,8 @@ import Planner from './pages/Planner';
 import Resources from './pages/Resources';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { NotesProvider } from './contexts/NotesContext';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
               <Route path="/notes" element={<Notes />} />
               <Route path="/planner" element={<Planner />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
             </Routes>
           </Layout>
         </Router>
