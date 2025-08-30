@@ -1,14 +1,26 @@
 import React from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useNotes } from '../contexts/NotesContext';
-import { CalendarIcon, BookOpenIcon, FolderIcon, ArrowRightIcon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { CalendarIcon, BookOpenIcon, FolderIcon, ArrowRightIcon, LogOutIcon } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import QuoteCard from '../components/QuoteCard';
+import { auth } from '../firebase';  // 👈 import auth
+import { signOut } from 'firebase/auth'; // 👈 import signOut
 
 const Dashboard = () => {
   const { theme } = useTheme();
   const { notes } = useNotes();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/login"); // 👈 redirect to login after logout
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   const scheduleItems = [
     { time: '09:00 AM', title: 'CS101: Introduction to Programming', location: 'Room 302' },
@@ -26,12 +38,26 @@ const Dashboard = () => {
   return (
     <div className="container mx-auto p-6 space-y-6">
       
+      {/* Header with Logout */}
+      <div className="flex justify-between items-center">
+        <h1 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+          Dashboard
+        </h1>
+        <button
+          onClick={handleLogout}
+          className="flex items-center px-4 py-2 rounded-lg bg-red-500 hover:bg-red-600 text-white transition-colors duration-200"
+        >
+          <LogOutIcon className="h-5 w-5 mr-2" />
+          Logout
+        </button>
+      </div>
+
       {/* Quote at top */}
       <QuoteCard />
 
-      {/* Today's Schedule & Recent Notes side by side */}
+      {/* Today's Schedule & Recent Notes */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Today's Schedule */}
+        {/* Schedule */}
         <div className={`p-6 rounded-xl shadow-md ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
           <h2 className={`text-lg font-semibold mb-4 flex items-center ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
             <CalendarIcon className="mr-2 h-5 w-5 text-blue-500" />
