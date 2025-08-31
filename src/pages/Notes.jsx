@@ -109,40 +109,6 @@ function Notes() {
       </Card>
 
       {/* Quick Links */}
-<Card
-  title="Quick Links"
-  icon={<LinkIcon className="h-5 w-5 text-green-500" />}
-  accent="text-green-500"
-  span="md:col-span-2"
->
-  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-    {[
-      { name: "Planner", path: "/planner" },
-      { name: "Dashboard", path: "/dashboard" },
-      { name: "Resources", path: "/resources" },
-    ].map((link, index) => (
-      <motion.div
-        key={index}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-      >
-        <Link
-          to={link.path}
-          className={`block p-4 rounded-lg text-center font-medium ${
-            theme === "dark"
-              ? "bg-gray-700 hover:bg-gray-600 text-white"
-              : "bg-gray-50 hover:bg-gray-100 text-gray-900"
-          } transition-colors duration-200`}
-        >
-          {link.name}
-        </Link>
-      </motion.div>
-    ))}
-  </div>
-</Card>
-
-
-      {/* Quick Links */}
       <Card
         title="Quick Links"
         icon={<LinkIcon className="h-5 w-5 text-green-500" />}
@@ -153,19 +119,24 @@ function Notes() {
           {[
             { name: "Planner", path: "/planner" },
             { name: "Dashboard", path: "/dashboard" },
-            { name: "Resources", path: "/resources" },
+          { name: "Resources", path: "/resources" },
           ].map((link, index) => (
-            <Link
+            <motion.div
               key={index}
-              to={link.path}
-              className={`p-4 rounded-lg text-center font-medium ${
-                theme === "dark"
-                  ? "bg-gray-700 hover:bg-gray-600 text-white"
-                  : "bg-gray-50 hover:bg-gray-100 text-gray-900"
-              } transition-colors duration-200`}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              {link.name}
-            </Link>
+              <Link
+                to={link.path}
+                className={`block p-4 rounded-lg text-center font-medium ${
+                  theme === "dark"
+                    ? "bg-gray-700 hover:bg-gray-600 text-white"
+                    : "bg-gray-50 hover:bg-gray-100 text-gray-900"
+                } transition-colors duration-200`}
+              >
+                {link.name}
+              </Link>
+            </motion.div>
           ))}
         </div>
       </Card>
