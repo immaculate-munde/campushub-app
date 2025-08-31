@@ -1,81 +1,65 @@
-# CampusHub 🚀
+# 🚀 CampusHub
 
-**CampusHub** is a React-based **student productivity app** designed to help you stay organized, manage your notes, plan your week, and quickly access important resources — all wrapped in a sleek, responsive interface with smooth animations.
+**CampusHub** is a React-based **student productivity app** that helps students stay organized, manage notes, plan weekly study schedules, and access resources — all wrapped in a modern, responsive interface with smooth animations.
 
 ---
 
 ## ✨ Features
 
-- **Dark & Light Themes**  
-  Easily toggle between themes to match your mood or environment.
-
-- **Notes Management**  
-  Add, update, and delete notes — all saved locally in your browser for quick access.
-
-- **Weekly Study Planner**  
-  Manage your schedule with events, time slots, and customizable event types.
-
-- **Smart Search Bar**  
-  Find your notes and resources instantly with the intuitive search functionality.
-
-- **Smooth Animations**  
-  Enjoy subtle, elegant animations powered by Framer Motion.
-
-- **Responsive Design**  
-  Built with Tailwind CSS v4 to look great on any device.
+- 🌗 **Dark & Light Themes** – Switch between themes anytime.  
+- 📝 **Notes Management** – Add, edit, and delete notes (saved locally).  
+- 📅 **Weekly Study Planner** – Schedule events and track your study week.  
+- 🔍 **Smart Search Bar** – Instantly find notes and resources.  
+- 🎬 **Smooth Animations** – Powered by Framer Motion.  
+- 📱 **Responsive Design** – Optimized with Tailwind CSS v4.  
+- 🔥 **Firebase Authentication** – Google login & Email/Password support.  
 
 ---
 
-## 🚀 Installation
+## 🌐 Live Demo
 
-1. **Clone the repository:**
-   git clone https://github.com/immaculate-munde/campushub-app.git
-   
-Navigate into the project directory
+👉 [CampusHub on Vercel](https://campushub-app.vercel.app)
+
+---
+
+## 🚀 Installation & Setup
+
+Clone the repository:
+git clone https://github.com/immaculate-munde/campushub-app.git
+
 cd campushub-app
-
 Install dependencies:
+
+Copy code
 npm install
 # or
 yarn install
-
 Start the development server:
+
+
+Copy code
 npm start
 # or
 yarn start
-
 Open your browser at:
-http://localhost:3000
+👉 http://localhost:3000
 
 🎯 Usage
-Use the theme toggle button to switch between Dark and Light modes anytime.
+Toggle Dark/Light mode from the UI.
+Navigate between Notes, Planner, and Resources.
+Create, edit, and delete notes anytime.
+Plan your week effectively with the Planner feature.
 
-Navigate easily between Notes, Planner, and Resources via the sidebar or quick links.
-
-Manage your study notes — add, edit, and delete them as you go.
-
-Plan your week effectively with the Planner and keep track of all your study events.
-
-🛠 Technologies Used
-
-React
-
-Tailwind CSS v4
-
-Framer Motion
-
-React Router
-
-Lucide React Icons
+🛠 Tech Stack
+⚛️ React
+🎨 Tailwind CSS v4
+🌀 Framer Motion
+🔗 React Router
+✨ Lucide React Icons
+🔥 Firebase Authentication
 
 🤝 Contributing
-Contributions, suggestions, and improvements are very welcome! Feel free to:
-
+Contributions and suggestions are welcome!
 Open issues
-
 Submit pull requests
-
 Share feedback
-
-📄 License
-This project is licensed under the MIT License. See the LICENSE file for details.
