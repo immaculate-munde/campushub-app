@@ -6,6 +6,9 @@ import Dashboard from './pages/Dashboard';
 import Notes from './pages/Notes';
 import Planner from './pages/Planner';
 import Resources from './pages/Resources';
+import ContactForm from './pages/ContactForm';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { NotesProvider } from './contexts/NotesContext';
 import { EventsProvider } from './contexts/EventsContext';
@@ -41,6 +44,9 @@ export default function App() {
                     path="/signup" 
                     element={!user ? <Signup /> : <Navigate to="/app" replace />} 
                   />
+                  <Route path="/contact" element={<ContactForm />} />
+                  <Route path="/privacy" element={<PrivacyPolicy />} />
+                  <Route path="/terms" element={<TermsOfService />} />
 
                   {/* Protected routes */}
                   <Route 
