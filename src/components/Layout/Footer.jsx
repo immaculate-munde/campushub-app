@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-sm">© 2023 CampusHub. All rights reserved.</p>
+            <p className="text-sm">© 2025 CampusHub. All rights reserved.</p>
           </div>
           <div className="flex items-center space-x-1 text-sm">
             <span>Made with</span>
@@ -17,13 +17,13 @@ export const Footer = () => {
             <span>for students</span>
           </div>
           <div className="mt-4 md:mt-0 flex space-x-4">
-            <a href="#" className="text-sm hover:underline">
+            <a href="/privacy" className="text-sm hover:underline">
               Privacy Policy
             </a>
-            <a href="#" className="text-sm hover:underline">
+            <a href="/terms" className="text-sm hover:underline">
               Terms of Service
             </a>
-            <a href="#" className="text-sm hover:underline">
+            <a href="/contact" className="text-sm hover:underline">
               Contact
             </a>
           </div>
