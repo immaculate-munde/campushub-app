@@ -4,8 +4,9 @@ import { CalendarIcon, StickyNoteIcon, LinkIcon } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useNotes } from "../contexts/NotesContext";
 import { useEvents } from "../contexts/EventsContext";
+import { useSearch } from "../contexts/SearchContext";
 import EventCard from "../components/EventCard";
-import { Link } from "react-router-dom"; // ✅ Import Link
+import { Link } from "react-router-dom";
 
 // Animation Variants
 const containerVariants = {
@@ -46,6 +47,19 @@ function Notes() {
   const { theme } = useTheme();
   const { notes } = useNotes();
   const { events, removeEvent } = useEvents();
+  const { searchQuery } = useSearch(); // ✅ Grab global search query
+
+  // 🔍 Filter notes by search
+  const filteredNotes = notes.filter(
+    (note) =>
+      note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      note.content.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // 🔍 Filter events by search
+  const filteredEvents = events.filter((event) =>
+    event.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <motion.div
@@ -61,12 +75,12 @@ function Notes() {
         accent="text-blue-500"
       >
         <div className="space-y-3">
-          {events.length === 0 ? (
+          {filteredEvents.length === 0 ? (
             <p className={theme === "dark" ? "text-gray-400" : "text-gray-600"}>
-              No events scheduled today.
+              No matching events found.
             </p>
           ) : (
-            events.map((event) => (
+            filteredEvents.map((event) => (
               <EventCard key={event.id} event={event} onDelete={removeEvent} />
             ))
           )}
@@ -80,12 +94,12 @@ function Notes() {
         accent="text-yellow-500"
       >
         <div className="space-y-3">
-          {notes.length === 0 ? (
+          {filteredNotes.length === 0 ? (
             <p className={theme === "dark" ? "text-gray-400" : "text-gray-600"}>
-              No notes yet. Start writing your first one!
+              No matching notes found.
             </p>
           ) : (
-            notes.slice(0, 3).map((note) => (
+            filteredNotes.slice(0, 3).map((note) => (
               <div
                 key={note.id}
                 className={`p-3 rounded-lg ${
@@ -119,7 +133,7 @@ function Notes() {
           {[
             { name: "Planner", path: "/planner" },
             { name: "Dashboard", path: "/dashboard" },
-          { name: "Resources", path: "/resources" },
+            { name: "Resources", path: "/resources" },
           ].map((link, index) => (
             <motion.div
               key={index}
