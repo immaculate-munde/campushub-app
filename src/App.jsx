@@ -9,6 +9,7 @@ import Resources from './pages/Resources';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { NotesProvider } from './contexts/NotesContext';
 import { EventsProvider } from './contexts/EventsContext';
+import { SearchProvider } from './contexts/SearchContext';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
@@ -23,64 +24,66 @@ export default function App() {
   if (loading) return <Loader />;
 
   return (
-    <ThemeProvider>
-      <NotesProvider>
-        <EventsProvider>
-          <Router>
-            <Layout>
-              <Routes>
-                {/* Public routes */}
-                <Route path="/" element={<Landing />} />
-                <Route 
-                  path="/login" 
-                  element={!user ? <Login /> : <Navigate to="/app" replace />} 
-                />
-                <Route 
-                  path="/signup" 
-                  element={!user ? <Signup /> : <Navigate to="/app" replace />} 
-                />
+    <SearchProvider>
+      <ThemeProvider>
+        <NotesProvider>
+          <EventsProvider>
+            <Router>
+              <Layout>
+                <Routes>
+                  {/* Public routes */}
+                  <Route path="/" element={<Landing />} />
+                  <Route 
+                    path="/login" 
+                    element={!user ? <Login /> : <Navigate to="/app" replace />} 
+                  />
+                  <Route 
+                    path="/signup" 
+                    element={!user ? <Signup /> : <Navigate to="/app" replace />} 
+                  />
 
-                {/* Protected routes */}
-                <Route 
-                  path="/app" 
-                  element={
-                    <ProtectedRoute>
-                      <Dashboard />
-                    </ProtectedRoute>
-                  } 
-                />
-                <Route 
-                  path="/notes" 
-                  element={
-                    <ProtectedRoute>
-                      <Notes />
-                    </ProtectedRoute>
-                  } 
-                />
-                <Route 
-                  path="/planner" 
-                  element={
-                    <ProtectedRoute>
-                      <Planner />
-                    </ProtectedRoute>
-                  } 
-                />
-                <Route 
-                  path="/resources" 
-                  element={
-                    <ProtectedRoute>
-                      <Resources />
-                    </ProtectedRoute>
-                  } 
-                />
+                  {/* Protected routes */}
+                  <Route 
+                    path="/app" 
+                    element={
+                      <ProtectedRoute>
+                        <Dashboard />
+                      </ProtectedRoute>
+                    } 
+                  />
+                  <Route 
+                    path="/notes" 
+                    element={
+                      <ProtectedRoute>
+                        <Notes />
+                      </ProtectedRoute>
+                    } 
+                  />
+                  <Route 
+                    path="/planner" 
+                    element={
+                      <ProtectedRoute>
+                        <Planner />
+                      </ProtectedRoute>
+                    } 
+                  />
+                  <Route 
+                    path="/resources" 
+                    element={
+                      <ProtectedRoute>
+                        <Resources />
+                      </ProtectedRoute>
+                    } 
+                  />
 
-                {/* Catch-all redirect for unknown routes */}
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </Routes>
-            </Layout>
-          </Router>
-        </EventsProvider>
-      </NotesProvider>
-    </ThemeProvider>
+                  {/* Catch-all redirect for unknown routes */}
+                  <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+              </Layout>
+            </Router>
+          </EventsProvider>
+        </NotesProvider>
+      </ThemeProvider>
+    </SearchProvider>
   );
 }
